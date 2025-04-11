@@ -1,0 +1,6 @@
+#nom;pv_max;attaque;defense;agilite;vitesse
+
+
+a;100;20;15;10;25
+b;90;18;12;14;30
+c;150;30;20;5;15
