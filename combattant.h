@@ -13,5 +13,5 @@ typedef struct{
   Technique techspe[MAX_TECHNIQUE];
   int nbtech;
 }Combattant;
-int ChargerCombattantsDepuisFichier(const char* nomFichier, Combattant* combattants, int max);
+int ChargerCombattant(const char* nomFichier, Combattant* combattants, int max);
 #endif
