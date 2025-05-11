@@ -1,56 +1,61 @@
-CY Fighters
-CY Fighters est un jeu de combat en tour par tour en C, dans lequel deux équipes de combattants s'affrontent en utilisant des attaques de base ou des techniques spéciales. Le jeu peut être joué en mode deux joueurs ou en solo contre une IA.
+# CY Fighters
 
-Objectif
-Le but du jeu est de constituer une équipe de combattants à partir d'une pool (liste de personnages), puis de vaincre l'équipe adverse en gérant les attaques, les buffs, les soins, et les autres techniques disponibles pour chaque combattant.
+**CY Fighters** est un jeu de combat tour par tour en C dans lequel deux équipes de combattants s'affrontent à l'aide d'attaques de base et de techniques spéciales. Les combattants sont définis à partir de fichiers externes, et chaque joueur (ou IA) constitue son équipe avant de participer à un affrontement stratégique.
 
-Fonctionnalités principales
-Combat et techniques
-apply_damage(Fighter *a, Fighter *d, int v)
-Applique une attaque de a sur d. Si la cible esquive (basé sur son agilité), elle évite les dégâts. Sinon, les dégâts sont calculés à partir de l'attaque, des buffs et de la défense de la cible.
+## 🎮 Fonctionnalités principales
 
-apply_tech(Fighter *p, Fighter *ally, Fighter *opp, int idx)
-Applique une technique de l'utilisateur p sur une cible (ally ou opp) selon le type :
+- **Sélection d'équipe** : Chaque joueur choisit ses combattants dans une liste issue d’un fichier (`fighters.txt`). Chaque combattant possède ses propres statistiques et techniques.
 
-0 : attaque spéciale
+- **Combat tour par tour** : Les combattants agissent en fonction de leur vitesse. Ils peuvent effectuer une attaque de base ou utiliser des techniques spéciales (offensives, de soin, de buff, ou de debuff).
 
-1 : soin
+- **Système de techniques (techs)** :
+  - **Type 0** : Attaque spéciale (bonus de dégâts)
+  - **Type 1** : Soin
+  - **Type 2** : Buff (augmentation temporaire d’attaque)
+  - **Type 3** : Debuff (réduction temporaire de défense)
 
-2 : buff de l’attaque
+- **IA intégrée** : En mode solo, l'équipe adverse est contrôlée par une intelligence artificielle avec une logique simple (attaque ou utilisation de techniques disponibles).
 
-3 : debuff de la défense adverse
+- **Affichage console** : État des équipes affiché en temps réel avec barres de vie textuelles.
 
-decay(Fighter *p)
-Réduit les durées des effets (buffs ou debuffs) actifs, et décrémente les cooldowns des techniques.
+- **Gestion des effets temporaires** : Les buffs et debuffs ont une durée limitée, ainsi que des cooldowns pour les techniques.
 
-Gestion des équipes
-pick_team(Team *t, int size, int used[])
-Permet à un joueur de choisir les combattants de son équipe parmi la liste disponible.
+## 🧠 Structure du code
 
-team_next(const Team *a, const Team *b)
-Retourne le prochain combattant devant jouer, basé sur un système d’initiative avec une file de priorité (next).
+### `main.c`
+- Point d'entrée du jeu.
+- Chargement des techniques (`techs.txt`) et des combattants (`fighters.txt`).
+- Configuration du mode solo ou multijoueur.
+- Lancement du combat via la fonction `battle`.
 
-team_decay(Team *t1, Team *t2)
-Applique la fonction decay à tous les combattants vivants dans les deux équipes.
+### `game.c`
+- `display_pool` : Affiche les combattants disponibles.
+- `pick_team` : Permet à chaque joueur de choisir son équipe.
+- `human_turn` / `ai_turn` : Détermine l'action du combattant actif.
+- `battle` : Boucle principale du combat.
 
-Tour de jeu et IA
-human_turn(Fighter *p, Team *self, Team *en)
-Gère l’interaction utilisateur lors d’un tour (choix d’action).
+### `fighter.c`
+- `apply_damage` : Applique une attaque de base ou modifiée à un adversaire.
+- `apply_tech` : Exécute une technique spéciale.
+- `decay` : Réduit la durée des effets temporaires et des cooldowns.
 
-ai_turn(Fighter *p, Team *self, Team *en, int lvl)
-Contrôle le comportement de l’IA selon un niveau de difficulté basique.
+### `team.c`
+- `team_alive` : Vérifie si une équipe est encore en jeu.
+- `team_next` : Détermine le prochain combattant à agir selon l’ordre d’initiative.
+- `team_pick` : Sélectionne une cible dans une équipe (aléatoire ou plus faible).
+- `team_decay` : Met à jour tous les combattants des deux équipes.
 
-battle(Team *t1, Team *t2, int single, int lvl)
-Lancement du combat entre les deux équipes, en alternant les tours jusqu'à la victoire d’une équipe.
+### `tech.c`
+- `load_techs` : Charge les techniques à partir d’un fichier.
+- `find_tech` : Recherche une technique par son nom.
 
-Chargement des données
-load_techs("techs.txt")
-Charge la liste des techniques depuis un fichier texte.
+### `ui_console.c`
+- Affiche l'état des équipes et les choix disponibles à chaque tour.
 
-load_pool("fighters.txt")
-Charge les combattants disponibles depuis un fichier texte, avec leurs statistiques et leurs techniques.
+### `utils.c`
+- `rnd(m)` : Génère un nombre aléatoire entre 0 et `m - 1`.
 
-Fichiers de données
-techs.txt : contient les techniques disponibles (nom, valeur, durée, cooldown, type, description).
+## 📁 Fichiers requis
 
-fighters.txt : contient les combattants jouables et leurs statistiques.
+- `fighters.txt` : Définit les combattants disponibles (nom, stats, techniques).
+- `techs.txt` : Définit les techniques disponibles (nom, valeur, durée, type, etc.).
