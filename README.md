@@ -52,8 +52,7 @@
 ### `ui_console.c`
 - Affiche l'état des équipes et les choix disponibles à chaque tour.
 
-### `utils.c`
-- `rnd(m)` : Génère un nombre aléatoire entre 0 et `m - 1`.
+
 
 ## 📁 Fichiers requis
 
