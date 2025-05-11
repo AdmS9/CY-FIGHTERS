@@ -1,0 +1,29 @@
+Slash 20 0 0 0 Frappe rapide de base
+Rally 10 3 3 2 Augmente l’attaque pendant 3 tours
+
+Fireball 30 0 2 3 Inflige une boule de feu magique
+IceBlast 25 0 1 0 Attaque glacée directe
+
+Pierce 15 0 0 0 Tir pénétrant à courte portée
+HawkEye 0 2 3 2 Augmente l’attaque du tireur pendant 2 tours
+
+Smite 35 0 2 0 Coup puissant contre le mal
+HolyLight 25 0 2 1 Soigne un allié blessé
+
+Backstab 40 0 1 0 Attaque sournoise ignorante de défense
+PoisonBlade 10 3 3 3 Affaiblit la défense ennemie sur 3 tours
+
+Heal 30 0 2 1 Restaure les points de vie d’un allié
+NatureShield 0 3 4 2 Renforce la défense pour 3 tours
+
+ShieldBash 15 0 0 0 Attaque avec l’effet de stun potentiel
+Taunt 0 2 3 3 Réduit l’attaque de l’ennemi ciblé
+
+DarkPulse 25 0 1 0 Onde sombre d’énergie nécrotique
+DrainLife 20 0 2 1 Draine les PV de l’ennemi
+
+Frenzy 45 0 2 0 Attaque furieuse incontrôlable
+RageBoost 15 3 3 2 Boost temporaire d’attaque
+
+ChiWave 20 0 2 0 Attaque à distance énergétique
+Focus 0 3 2 2 Améliore la vitesse et précision du moine

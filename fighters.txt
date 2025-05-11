@@ -1,0 +1,20 @@
+Warrior 200 40 10 5 20 2
+Slash Rally
+Mage 120 30 5 5 25 2
+Fireball IceBlast
+Archer 150 35 5 10 30 2
+Pierce HawkEye
+Paladin 180 25 15 5 15 2
+Smite HolyLight
+Assassin 100 45 5 20 35 2
+Backstab PoisonBlade
+Druid 130 20 10 10 18 2
+Heal NatureShield
+Knight 190 30 20 5 15 2
+ShieldBash Taunt
+Necromancer 110 25 8 7 22 2
+DarkPulse DrainLife
+Berserker 170 50 5 3 28 2
+Frenzy RageBoost
+Monk 160 25 12 12 24 2
+ChiWave Focus
